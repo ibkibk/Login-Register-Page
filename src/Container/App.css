@@ -1,0 +1,64 @@
+.form_block {
+  width: 400px;
+  display: table;
+  margin-top: 10%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 5px;
+  border-radius: 5px;
+}
+.form_block > #title {
+  background: #4051b5;
+  padding: 10px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2);
+}
+.form_block > .body {
+  width: 95%;
+  background: #ffffff;
+  padding: 10px;
+  display: table;
+}
+
+input[type="text"],
+input[type="password"] {
+  height: 35px;
+  width: 100%;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  padding: 4px 5px;
+  background: #fff;
+  border: 1px solid #d0d0d0;
+  border-radius: 3px;
+}
+.loginBtn {
+  background: #4051b5;
+  border: 1px solid #4051b5;
+  color: white;
+  float: left;
+  font-weight: bold;
+  letter-spacing: 0.02857em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.registerBtn {
+  float: right;
+  height: 35px;
+}
+
+.Error {
+  padding: 10px;
+  background-color: rgb(199, 7, 7);
+  border: 1px solid #fadadb;
+  margin-bottom: 10px;
+  border-radius: 3px;
+  color: white;
+  font-weight: bold;
+}
