@@ -15,13 +15,14 @@ const useStyles = makeStyles((theme) => ({
 
 function ToDo(props) {
   const classes = useStyles();
+  const { submited, changed, todos, todo } = props;
 
   return (
     <div>
       <h1 style={{ textAlign: "center" }}>Add ToDo to Your List</h1>
       <form
         style={{ textAlign: "center" }}
-        onSubmit={props.submited}
+        onSubmit={submited}
         className={classes.root}
         noValidate
         autoComplete="off"
@@ -32,18 +33,18 @@ function ToDo(props) {
           label="Enter todo"
           placeholder="Enter todo"
           inputProps={{ "aria-label": "description" }}
-          onChange={props.changed}
-          value={props.todo.title}
+          onChange={changed}
+          value={todo.title}
         />
         <Button
           style={{ width: "150px" }}
-          onClick={props.submited}
+          onClick={submited}
           variant="contained"
           color="primary"
         >
           Add todo
         </Button>
-        {props.todos.map((todo) => {
+        {todos.map((todo) => {
           return (
             <p key={todo.id} style={{ textAlign: "center" }}>
               {todo.title}

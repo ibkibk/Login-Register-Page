@@ -4,7 +4,17 @@
 // function ToDos(props) {
 //   return (
 //     <div>
-//       <ToDo todo={props.toDo} todos={props.toDos} />
+//       <ul>
+//         {props.todos.map((item) => {
+//           return (
+//             <ToDo
+//               delete={() => props.delete()}
+//               submited={props.submited}
+//               changed={props.changed}
+//             />
+//           );
+//         })}
+//       </ul>
 //     </div>
 //   );
 // }

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import style from "./LoginAndReg.module.scss";
 import firebase, { providers } from "../../firebase";
 import Button from "@material-ui/core/Button";
 

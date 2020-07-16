@@ -22,6 +22,7 @@ export default class LoggedIn extends Component {
 
   submitHandler = (e) => {
     e.preventDefault();
+
     const todo = this.state.toDo;
     if (todo.title !== "") {
       const updatedTodos = [...this.state.toDos, todo];
@@ -47,6 +48,8 @@ export default class LoggedIn extends Component {
   };
 
   render() {
+    const { toDo, toDos } = this.state;
+
     return (
       <div className={style.Wrapper}>
         <h1 className={style.Header}>Welcome!</h1>
@@ -61,8 +64,8 @@ export default class LoggedIn extends Component {
         </Button>
         <ToDo
           delete={this.deleteHandler}
-          todo={this.state.toDo}
-          todos={this.state.toDos}
+          todo={toDo}
+          todos={toDos}
           submited={this.submitHandler}
           changed={this.changeHandler}
         />
