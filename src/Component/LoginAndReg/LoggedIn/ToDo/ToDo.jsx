@@ -46,11 +46,22 @@ function ToDo(props) {
         </Button>
         {todos.map((todo) => {
           return (
-            <p key={todo.id} style={{ textAlign: "center" }}>
+            <p
+              key={todo.id}
+              style={{
+                textAlign: "center",
+                border: "1px solid black",
+                height: "30px",
+              }}
+            >
               {todo.title}
               <FontAwesomeIcon
                 onClick={() => props.delete(todo.id)}
-                style={{ cursor: "pointer", marginLeft: "10px" }}
+                style={{
+                  cursor: "pointer",
+                  marginLeft: "10px",
+                  marginTop: "7px",
+                }}
                 icon={faTrash}
                 size="1x"
               />
