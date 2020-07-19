@@ -8,7 +8,11 @@
 //         {props.todos.map((item) => {
 //           return (
 //             <ToDo
-//               delete={() => props.delete()}
+//               title={item.title}
+//               key={item.id}
+//               todo={props.todo}
+//               todos={props.todos}
+//               delete={props.delete}
 //               submited={props.submited}
 //               changed={props.changed}
 //             />
