@@ -3,7 +3,7 @@ import Input from "@material-ui/core/Input";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faTrash, faEdit } from "@fortawesome/free-solid-svg-icons";
 const useStyles = makeStyles((theme) => ({
   root: {
     "& > *": {
@@ -52,6 +52,12 @@ function ToDo(props) {
                 onClick={() => props.delete(todo.id)}
                 style={{ cursor: "pointer", marginLeft: "10px" }}
                 icon={faTrash}
+                size="1x"
+              />
+              <FontAwesomeIcon
+                // onClick={() => props.delete(todo.id)}
+                style={{ cursor: "pointer", marginLeft: "10px" }}
+                icon={faEdit}
                 size="1x"
               />
             </p>
