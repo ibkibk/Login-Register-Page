@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import firebase from "../../../firebase";
-import { firestore } from "../../../firebase";
+// import { firestore } from "../../../firebase";
 
 import style from "../LoggedIn/LoggedIn.module.scss";
 import Button from "@material-ui/core/Button";
@@ -11,6 +11,7 @@ export default class LoggedIn extends Component {
   state = {
     toDos: [],
     toDo: { title: "", id: uuid() },
+    editToDo: false,
   };
 
   changeHandler = (e) => {
@@ -42,16 +43,19 @@ export default class LoggedIn extends Component {
           title: "",
           id: uuid(),
         },
+        editToDo: false,
       });
     }
   };
 
   editHandler = (id) => {
     const filteredTodos = this.state.toDos.filter((item) => item.id !== id);
-    const editItem = this.state.toDos.find((item) => item.id == id);
+    const editItem = this.state.toDos.find((item) => item.id === id);
+    console.log(editItem);
     this.setState({
       toDos: filteredTodos,
       toDo: editItem,
+      editToDo: true,
       id: id,
     });
   };
@@ -89,6 +93,7 @@ export default class LoggedIn extends Component {
           Logout
         </Button>
         <ToDo
+          editTrue={this.state.editToDo}
           edit={this.editHandler}
           delete={this.deleteHandler}
           todo={toDo}

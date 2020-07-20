@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
 
 function ToDo(props) {
   const classes = useStyles();
-  const { submited, changed, todos, todo, clear } = props;
+  const { submited, changed, todos, todo, clear, editTrue } = props;
 
   return (
     <div>
@@ -42,7 +42,7 @@ function ToDo(props) {
           variant="contained"
           color="primary"
         >
-          Add todo
+          {editTrue ? "edit item" : "add item"}
         </Button>
         <Button
           onClick={clear}
