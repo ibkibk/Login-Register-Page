@@ -40,7 +40,7 @@ function ToDo(props) {
           style={{ width: "150px" }}
           onClick={submited}
           variant="contained"
-          color="primary"
+          color={editTrue ? "secondary" : "primary"}
         >
           {editTrue ? "edit item" : "add item"}
         </Button>
@@ -58,7 +58,7 @@ function ToDo(props) {
               key={todo.id}
               style={{
                 textAlign: "center",
-                border: "1px solid black",
+                borderBottom: "1px solid #4051b5",
                 height: "30px",
               }}
             >
