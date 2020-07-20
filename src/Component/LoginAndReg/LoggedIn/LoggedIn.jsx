@@ -50,19 +50,24 @@ export default class LoggedIn extends Component {
 
   editHandler = (id) => {
     const filteredTodos = this.state.toDos.filter((item) => item.id !== id);
-    const editItem = this.state.toDos.find((item) => item.id === id);
-    console.log(editItem);
-    this.setState({
-      toDos: filteredTodos,
-      toDo: editItem,
-      editToDo: true,
-      id: id,
-    });
+    if (this.state.toDo.title == "") {
+      const editItem = this.state.toDos.find((item) => item.id === id);
+
+      console.log(editItem);
+      this.setState({
+        toDos: filteredTodos,
+        toDo: editItem,
+        editToDo: true,
+        id: id,
+      });
+    }
   };
 
   clearListHandler = () => {
     this.setState({
       toDos: [],
+      toDo: { title: "", id: "uuid()" },
+      editToDo: false,
     });
   };
 
