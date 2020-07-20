@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
 
 function ToDo(props) {
   const classes = useStyles();
-  const { submited, changed, todos, todo } = props;
+  const { submited, changed, todos, todo, clear } = props;
 
   return (
     <div>
@@ -44,6 +44,14 @@ function ToDo(props) {
         >
           Add todo
         </Button>
+        <Button
+          onClick={clear}
+          style={{ width: "150px" }}
+          variant="contained"
+          color="primary"
+        >
+          Clear the list
+        </Button>
         {todos.map((todo) => {
           return (
             <p
@@ -66,7 +74,7 @@ function ToDo(props) {
                 size="1x"
               />
               <FontAwesomeIcon
-                // onClick={() => props.delete(todo.id)}
+                onClick={() => props.edit(todo.id)}
                 style={{ cursor: "pointer", marginLeft: "10px" }}
                 icon={faEdit}
                 size="1x"

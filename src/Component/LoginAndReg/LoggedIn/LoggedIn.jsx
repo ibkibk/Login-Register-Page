@@ -46,8 +46,24 @@ export default class LoggedIn extends Component {
     }
   };
 
-  deleteHandler = (id) => {
+  editHandler = (id) => {
     const filteredTodos = this.state.toDos.filter((item) => item.id !== id);
+    const editItem = this.state.toDos.find((item) => item.id == id);
+    this.setState({
+      toDos: filteredTodos,
+      toDo: editItem,
+      id: id,
+    });
+  };
+
+  clearListHandler = () => {
+    this.setState({
+      toDos: [],
+    });
+  };
+
+  deleteHandler = (id) => {
+    const filteredTodos = this.state.toDos.filter((todo) => todo.id !== id);
     this.setState({
       toDos: filteredTodos,
     });
@@ -73,11 +89,13 @@ export default class LoggedIn extends Component {
           Logout
         </Button>
         <ToDo
+          edit={this.editHandler}
           delete={this.deleteHandler}
           todo={toDo}
           todos={toDos}
           submited={this.submitHandler}
           changed={this.changeHandler}
+          clear={this.clearListHandler}
         />
       </div>
     );
