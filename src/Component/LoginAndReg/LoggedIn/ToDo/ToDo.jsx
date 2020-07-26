@@ -4,6 +4,7 @@ import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faEdit } from "@fortawesome/free-solid-svg-icons";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     "& > *": {
@@ -36,6 +37,7 @@ function ToDo(props) {
           onChange={changed}
           value={todo.title}
         />
+
         <Button
           style={{ width: "150px" }}
           onClick={submited}
@@ -44,6 +46,7 @@ function ToDo(props) {
         >
           {editTrue ? "edit item" : "add item"}
         </Button>
+
         <Button
           onClick={clear}
           style={{ width: "150px" }}
@@ -52,6 +55,7 @@ function ToDo(props) {
         >
           Clear the list
         </Button>
+
         {todos.map((todo) => {
           return (
             <p
@@ -63,6 +67,7 @@ function ToDo(props) {
               }}
             >
               {todo.title}
+
               <FontAwesomeIcon
                 onClick={() => props.delete(todo.id)}
                 style={{
@@ -73,6 +78,7 @@ function ToDo(props) {
                 icon={faTrash}
                 size="1x"
               />
+
               <FontAwesomeIcon
                 onClick={() => props.edit(todo.id)}
                 style={{ cursor: "pointer", marginLeft: "10px" }}

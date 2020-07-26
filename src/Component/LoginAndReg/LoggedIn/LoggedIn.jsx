@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import firebase from "../../../firebase";
-// import { firestore } from "../../../firebase";
-
+import firebase, { firestore } from "../../../firebase";
 import style from "../LoggedIn/LoggedIn.module.scss";
 import Button from "@material-ui/core/Button";
 import ToDo from "./ToDo/ToDo";
@@ -25,15 +23,6 @@ export default class LoggedIn extends Component {
 
   submitHandler = (e) => {
     e.preventDefault();
-    // firestore
-    //   .collection("users")
-    //   .doc(this.props.user.toDo.title)
-    //   .set(this.state.toDo)
-    //   .then(() => {
-    //     console.log("it worked");
-    //   });
-    // let msg = firebase.database().ref("messages").orderByKey().limitToLast(100);
-    // firebase.database().ref("messages").push("this.state.toDo");
     const todo = this.state.toDo;
     if (todo.title !== "") {
       const updatedTodos = [...this.state.toDos, todo];
@@ -50,7 +39,7 @@ export default class LoggedIn extends Component {
 
   editHandler = (id) => {
     const filteredTodos = this.state.toDos.filter((item) => item.id !== id);
-    if (this.state.toDo.title == "") {
+    if (this.state.toDo.title === "") {
       const editItem = this.state.toDos.find((item) => item.id === id);
 
       console.log(editItem);
