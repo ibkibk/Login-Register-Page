@@ -1,6 +1,6 @@
 import firebase from "firebase";
 
-const firebaseConfig = {
+const firebaseApp = firebase.initializeApp({
   apiKey: "AIzaSyACcDct-p6VCYe29oIVLOtcFJt_onUjw3g",
   authDomain: "login-register-page-53e16.firebaseapp.com",
   databaseURL: "https://login-register-page-53e16.firebaseio.com",
@@ -8,14 +8,14 @@ const firebaseConfig = {
   storageBucket: "login-register-page-53e16.appspot.com",
   messagingSenderId: "700802498752",
   appId: "1:700802498752:web:b915f951b2ddff2de52d25",
-};
+});
 
-firebase.initializeApp(firebaseConfig);
+// firebase.initializeApp(firebaseConfig);
 
 export const providers = {
   google: new firebase.auth.GoogleAuthProvider(),
 };
-
+export const db = firebaseApp.firestore();
 export const firestore = firebase.firestore();
 
 export default firebase;
