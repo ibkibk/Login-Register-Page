@@ -6,6 +6,7 @@ export default class Login extends Component {
   state = {
     user: null,
     email: "",
+    username: "",
     password: "",
     fireErrors: "",
     formTitle: "Login",
@@ -47,7 +48,7 @@ export default class Login extends Component {
   getAction = (action) => {
     if (action === "reg") {
       this.setState({
-        formTitle: "Register New User",
+        formTitle: "Register",
         loginBtn: false,
         fireErrors: "",
       });
@@ -61,7 +62,14 @@ export default class Login extends Component {
   };
 
   render() {
-    const { fireErrors, loginBtn, formTitle, email, password } = this.state;
+    const {
+      fireErrors,
+      loginBtn,
+      formTitle,
+      email,
+      password,
+      username,
+    } = this.state;
     let errorNotification = fireErrors ? (
       <div className="Error"> {fireErrors} </div>
     ) : null;
@@ -108,6 +116,15 @@ export default class Login extends Component {
         <div className="body">
           {errorNotification}
           <form>
+            <p>USERNAME</p>
+            <input
+              placeholder="Enter your username"
+              type="text"
+              value={username}
+              onChange={this.handleChange}
+              name="username"
+            />
+            <p>EMAIL</p>
             <input
               placeholder="Enter your email"
               type="text"
@@ -115,7 +132,7 @@ export default class Login extends Component {
               onChange={this.handleChange}
               name="email"
             />
-
+            <p>PASSWORD </p>
             <input
               placeholder="Enter your password"
               type="password"

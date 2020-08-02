@@ -100,57 +100,12 @@
 //   }
 // }
 
-import React, { useState } from "react";
+import React from "react";
 import firebase from "../../../firebase";
 import style from "../LoggedIn/LoggedIn.module.scss";
 import Button from "@material-ui/core/Button";
-import ToDo from "./ToDo/ToDo";
-import { v4 as uuid } from "uuid";
-// import db from "../../../../src/firebase";
 
 const LoggedIn = () => {
-  const [toDos, setToDos] = useState([]);
-  const [toDo, setToDo] = useState({});
-  const [editToDo, setEditToDo] = useState();
-
-  const changeHandler = (e) => {
-    setToDo({
-      title: e.target.value,
-      id: uuid(),
-    });
-  };
-
-  const submitHandler = (e) => {
-    e.preventDefault();
-    if (toDo.title !== "") {
-      const updatedTodos = [...toDos, toDo];
-      setToDos(updatedTodos);
-      setToDo({ title: "", id: uuid() });
-      setEditToDo(false);
-    }
-  };
-
-  const editHandler = (id) => {
-    const filteredTodos = toDos.filter((item) => item.id !== id);
-    if (toDo.title === "") {
-      const editItem = toDos.find((item) => item.id === id);
-      setToDos(filteredTodos);
-      setToDo(editItem);
-      setEditToDo(true);
-    }
-  };
-
-  const clearListHandler = () => {
-    setToDos([]);
-    setToDo({ title: "", id: "uuid()" });
-    setEditToDo(false);
-  };
-
-  const deleteHandler = (id) => {
-    const filteredTodos = toDos.filter((todo) => todo.id !== id);
-    setToDos(filteredTodos);
-  };
-
   const signOut = () => {
     firebase.auth().signOut();
   };
@@ -167,16 +122,6 @@ const LoggedIn = () => {
       >
         Logout
       </Button>
-      <ToDo
-        editTrue={editToDo}
-        edit={editHandler}
-        delete={deleteHandler}
-        todo={toDo}
-        todos={toDos}
-        submited={submitHandler}
-        changed={changeHandler}
-        clear={clearListHandler}
-      />
     </div>
   );
 };
